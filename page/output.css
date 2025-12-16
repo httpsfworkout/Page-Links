@@ -240,8 +240,14 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
+  .border-\[\#1a021d\] {
+    border-color: #1a021d;
+  }
   .border-transparent {
     border-color: transparent;
+  }
+  .bg-\[\#1E2939\] {
+    background-color: #1E2939;
   }
   .bg-\[rgba\(255\,255\,255\,0\.06\)\] {
     background-color: rgba(255,255,255,0.06);

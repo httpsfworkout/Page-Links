@@ -2,7 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --body: linear-gradient(to right top, #051937, #0d193a, #15183c, #1d173d, #25163e);
+    --body: linear-gradient(to right top, #000b1c, #05081b, #0b051a, #0f0318, #130015);
+    --white: #e5e5e5;
+    --social: rgba(255,255,255,0.06);
+    --social-hover: rgba(255,255,255,0.12);
 }
 
 * {
@@ -22,13 +25,21 @@ body {
 .freitas::after {
     content: '';
     display: block;
-    background: #e5e5e5;
+    background: var(--white);
     height: 2px;
     width: 15%;
     position: absolute;
     bottom: 0;
     right: -15px;
     animation: piscar 1500ms ease-in-out infinite;
+}
+
+.social {
+    background: var(--social);
+}
+
+.social:hover {
+    background: var(--social-hover);
 }
 
 @keyframes piscar {
@@ -44,7 +55,7 @@ body {
 .tooltip {
     position: absolute;
     background: #000;
-    color: #e5e5e5;
+    color: var(--white);
     padding: 4px 8px;
     font-size: 12px;
     width: 15%;
