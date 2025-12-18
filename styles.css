@@ -5,7 +5,7 @@
     --body: linear-gradient(to right top, #000b1c, #05081b, #0b051a, #0f0318, #130015);
     --white: #e5e5e5;
     --social: rgba(255,255,255,0.06);
-    --social-hover: rgba(255,255,255,0.12);
+    --social-hover: rgba(255,255,255,0.35);
 }
 
 * {
@@ -40,6 +40,10 @@ body {
 
 .social:hover {
     background: var(--social-hover);
+}
+
+.instagram:hover {
+    color: #c00c0c;
 }
 
 @keyframes piscar {
