@@ -2,10 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --body: linear-gradient(to right top, #000b1c, #05081b, #0b051a, #0f0318, #130015);
+    --body-bg: linear-gradient(90deg,rgba(56, 2, 87, 1) 0%, rgba(54, 21, 74, 1) 50%, rgba(71, 16, 97, 1) 100%);
     --white: #e5e5e5;
-    --social: rgba(255,255,255,0.06);
-    --social-hover: rgba(255,255,255,0.35);
+    --social-bg: rgba(255,255,255,0.08);
+    --social-filter: blur(20px);
+    --social-hover-bg: rgba(255,255,255,0.35);
 }
 
 * {
@@ -14,12 +15,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background: var(--body);
-}
-
-.freitas {
-    display: inline-block;
-    position: relative;
+    background: var(--body-bg);
 }
 
 .freitas::after {
@@ -34,16 +30,16 @@ body {
     animation: piscar 1500ms ease-in-out infinite;
 }
 
+.box-social span {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(50%);
+}
+
 .social {
-    background: var(--social);
-}
-
-.social:hover {
-    background: var(--social-hover);
-}
-
-.instagram:hover {
-    color: #c00c0c;
+    background: var(--social-bg);
+    backdrop-filter: var(--social-filter);
 }
 
 @keyframes piscar {

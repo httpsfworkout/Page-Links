@@ -8,6 +8,7 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-500: oklch(63.7% 0.237 25.331);
+    --color-red-600: oklch(57.7% 0.245 27.325);
     --color-red-700: oklch(50.5% 0.213 27.518);
     --color-sky-500: oklch(68.5% 0.169 237.323);
     --color-sky-600: oklch(58.8% 0.158 241.966);
@@ -180,26 +181,41 @@
   }
 }
 @layer utilities {
+  .relative {
+    position: relative;
+  }
   .m-auto {
     margin: auto;
   }
   .my-4 {
     margin-block: calc(var(--spacing) * 4);
   }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
   .flex {
     display: flex;
+  }
+  .inline-block {
+    display: inline-block;
   }
   .table {
     display: table;
   }
+  .h-\[50vh\] {
+    height: 50vh;
+  }
+  .h-\[70vh\] {
+    height: 70vh;
+  }
+  .h-\[80vh\] {
+    height: 80vh;
+  }
+  .h-\[90vh\] {
+    height: 90vh;
+  }
   .h-screen {
     height: 100vh;
-  }
-  .w-\[15\%\] {
-    width: 15%;
-  }
-  .w-\[30\%\] {
-    width: 30%;
   }
   .w-\[35\%\] {
     width: 35%;
@@ -216,6 +232,9 @@
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
+  .cursor-pointer {
+    cursor: pointer;
+  }
   .resize {
     resize: both;
   }
@@ -227,6 +246,9 @@
   }
   .justify-center {
     justify-content: center;
+  }
+  .justify-end {
+    justify-content: flex-end;
   }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
@@ -253,6 +275,9 @@
   .p-3 {
     padding: calc(var(--spacing) * 3);
   }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
   .text-center {
     text-align: center;
   }
@@ -278,11 +303,29 @@
   .text-\[\#e5e5e5\] {
     color: #e5e5e5;
   }
-  .text-inherit {
-    color: inherit;
+  .text-\[rgba\(255\,255\,255\,0\.5\)\] {
+    color: rgba(255,255,255,0.5);
+  }
+  .text-\[rgba\(255\,255\,255\,0\.6\)\] {
+    color: rgba(255,255,255,0.6);
+  }
+  .text-\[rgba\(255\,255\,255\,0\.8\)\] {
+    color: rgba(255,255,255,0.8);
   }
   .text-neutral-200 {
     color: var(--color-neutral-200);
+  }
+  .text-neutral-950 {
+    color: var(--color-neutral-950);
+  }
+  .text-red-500 {
+    color: var(--color-red-500);
+  }
+  .text-red-600 {
+    color: var(--color-red-600);
+  }
+  .text-sky-500 {
+    color: var(--color-sky-500);
   }
   .text-white {
     color: var(--color-white);
@@ -328,27 +371,6 @@
       }
     }
   }
-  .hover\:text-neutral-950 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-neutral-950);
-      }
-    }
-  }
-  .hover\:text-sky-500 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-sky-500);
-      }
-    }
-  }
-  .hover\:text-sky-600 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-sky-600);
-      }
-    }
-  }
   .md\:w-\[10\%\] {
     @media (width >= 48rem) {
       width: 10%;
@@ -368,21 +390,18 @@
 }
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
-  --body: linear-gradient(to right top, #000b1c, #05081b, #0b051a, #0f0318, #130015);
+  --body-bg: linear-gradient(90deg,rgba(56, 2, 87, 1) 0%, rgba(54, 21, 74, 1) 50%, rgba(71, 16, 97, 1) 100%);
   --white: #e5e5e5;
-  --social: rgba(255,255,255,0.06);
-  --social-hover: rgba(255,255,255,0.35);
+  --social-bg: rgba(255,255,255,0.08);
+  --social-filter: blur(20px);
+  --social-hover-bg: rgba(255,255,255,0.35);
 }
 * {
   box-sizing: border-box;
 }
 body {
   font-family: 'Montserrat', sans-serif;
-  background: var(--body);
-}
-.freitas {
-  display: inline-block;
-  position: relative;
+  background: var(--body-bg);
 }
 .freitas::after {
   content: '';
@@ -395,14 +414,15 @@ body {
   right: -15px;
   animation: piscar 1500ms ease-in-out infinite;
 }
+.box-social span {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(50%);
+}
 .social {
-  background: var(--social);
-}
-.social:hover {
-  background: var(--social-hover);
-}
-.instagram:hover {
-  color: #c00c0c;
+  background: var(--social-bg);
+  backdrop-filter: var(--social-filter);
 }
 @keyframes piscar {
   0%, 100% {
